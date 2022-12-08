@@ -625,7 +625,7 @@ font: 8pt &quot;Google Sans&quot;;
       <string/>
      </property>
      <property name="text">
-      <string>только циклы</string>
+      <string>только циклы for</string>
      </property>
      <property name="checked">
       <bool>false</bool>

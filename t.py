@@ -652,7 +652,7 @@ class Ui_MainWindow(object):
         self.comboBox_3.setItemText(12, _translate("MainWindow", "np.float64"))
         self.comboBox_3.setItemText(13, _translate("MainWindow", "py.bin"))
         self.checkBox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Использовать для создания массивов только циклы for (дольше)</p></body></html>"))
-        self.checkBox.setText(_translate("MainWindow", "только циклы"))
+        self.checkBox.setText(_translate("MainWindow", "только циклы for"))
         self.groupBox_2.setTitle(_translate("MainWindow", "Действие"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Сложение"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Вычитание"))
