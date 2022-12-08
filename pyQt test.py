@@ -33,6 +33,7 @@ flag=0
 flag2=0
 
 #Git is working?
+#Yep
 
 
 class mywindow(QtWidgets.QMainWindow):
