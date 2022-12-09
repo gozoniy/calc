@@ -29,19 +29,47 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("border-width: 5px;\n"
-"font: 10pt \"Google Sans\";\n"
+        self.pushButton_2.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 10pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    color: rgb(43, 131, 131);\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.977773, y2:0.961, stop:0 rgba(57, 182, 200, 255), stop:1 rgba(187, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
         self.progressBar.setGeometry(QtCore.QRect(10, 540, 921, 21))
-        self.progressBar.setStyleSheet("border-width: 5px;\n"
-"font: 8pt \"Google Sans\";\n"
+        self.progressBar.setStyleSheet("QProgressBar{\n"
+"    border-width: 5px;\n"
+"    font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"QProgressBar:chunk{\n"
+"     border-radius: 10px;\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(76, 200, 111, 255), stop:1 rgba(187, 255, 255, 255));\n"
+"}")
         self.progressBar.setProperty("value", 0)
         self.progressBar.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.progressBar.setTextVisible(False)
@@ -63,11 +91,29 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.pushButton_3.setFont(font)
         self.pushButton_3.setToolTip("")
-        self.pushButton_3.setStyleSheet("border-width: 5px;\n"
-"font: 10pt \"Google Sans\";\n"
+        self.pushButton_3.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 10pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(76, 200, 111, 255), stop:1 rgba(187, 255, 255, 255));\n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setGeometry(QtCore.QRect(10, 520, 241, 19))
@@ -109,11 +155,30 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName("label_9")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(850, 842, 81, 21))
-        self.pushButton.setStyleSheet("border-width: 5px;\n"
-"font: 8pt \"Google Sans\";\n"
+        self.pushButton.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 281, 351))
@@ -142,7 +207,7 @@ class Ui_MainWindow(object):
 "font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;")
-        self.lineEdit_2.setMaxLength(5)
+        self.lineEdit_2.setMaxLength(20)
         self.lineEdit_2.setClearButtonEnabled(False)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_10 = QtWidgets.QLabel(self.groupBox)
@@ -233,7 +298,7 @@ class Ui_MainWindow(object):
 "font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;")
-        self.lineEdit_3.setMaxLength(5)
+        self.lineEdit_3.setMaxLength(20)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.comboBox_3 = QtWidgets.QComboBox(self.groupBox)
         self.comboBox_3.setGeometry(QtCore.QRect(10, 120, 261, 31))
@@ -249,6 +314,8 @@ class Ui_MainWindow(object):
 "font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;")
+        self.comboBox_3.setIconSize(QtCore.QSize(16, 16))
+        self.comboBox_3.setFrame(True)
         self.comboBox_3.setObjectName("comboBox_3")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
@@ -279,7 +346,7 @@ class Ui_MainWindow(object):
         self.checkBox.setChecked(False)
         self.checkBox.setObjectName("checkBox")
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_2.setGeometry(QtCore.QRect(330, 10, 281, 231))
+        self.groupBox_2.setGeometry(QtCore.QRect(330, 10, 281, 131))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
         font.setPointSize(8)
@@ -392,11 +459,30 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet("border-width: 2px;\n"
-"\n"
+        self.pushButton_5.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_5.setObjectName("pushButton_5")
         self.textBrowser_2 = QtWidgets.QTextBrowser(self.groupBox_3)
         self.textBrowser_2.setGeometry(QtCore.QRect(10, 20, 261, 91))
@@ -423,11 +509,30 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("border-width: 2px;\n"
-"\n"
+        self.pushButton_4.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 8pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_4.setObjectName("pushButton_4")
         self.label_12 = QtWidgets.QLabel(self.groupBox_3)
         self.label_12.setGeometry(QtCore.QRect(10, 150, 121, 20))
@@ -478,14 +583,36 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_6.setFont(font)
-        self.pushButton_6.setStyleSheet("border-width: 5px;\n"
-"font: 10pt \"Google Sans\";\n"
+        self.pushButton_6.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 10pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    color: rgb(170, 0, 0);\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.989, y2:1, stop:0 rgba(160, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_6.setObjectName("pushButton_6")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
         self.label_6.setGeometry(QtCore.QRect(10, 400, 921, 20))
+        font = QtGui.QFont()
+        font.setFamily("Google Sans")
+        self.label_6.setFont(font)
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
@@ -497,44 +624,101 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_7.setFont(font)
-        self.pushButton_7.setStyleSheet("border-width: 5px;\n"
-"font: 10pt \"Google Sans\";\n"
+        self.pushButton_7.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 10pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_7.setObjectName("pushButton_7")
         self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_8.setGeometry(QtCore.QRect(810, 320, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
-        font.setPointSize(10)
+        font.setPointSize(9)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_8.setFont(font)
-        self.pushButton_8.setStyleSheet("border-width: 5px;\n"
-"font: 10pt \"Google Sans\";\n"
+        self.pushButton_8.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 9pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_8.setObjectName("pushButton_8")
         self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_9.setGeometry(QtCore.QRect(810, 280, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
-        font.setPointSize(10)
+        font.setPointSize(9)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
         self.pushButton_9.setFont(font)
-        self.pushButton_9.setStyleSheet("border-width: 5px;\n"
-"font: 10pt \"Google Sans\";\n"
+        self.pushButton_9.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 9pt \"Google Sans\";\n"
 "    border-radius: 10px;\n"
 "    border-color: beige;\n"
-"background-color: rgb(255, 255, 255);")
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
         self.pushButton_9.setObjectName("pushButton_9")
         self.groupBox_4 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_4.setGeometry(QtCore.QRect(329, 259, 281, 101))
+        self.groupBox_4.setGeometry(QtCore.QRect(330, 240, 281, 101))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
         font.setPointSize(8)
@@ -559,7 +743,7 @@ class Ui_MainWindow(object):
         self.label_14.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_14.setObjectName("label_14")
         self.label_15 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_15.setGeometry(QtCore.QRect(120, 50, 141, 20))
+        self.label_15.setGeometry(QtCore.QRect(130, 50, 141, 20))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
         font.setPointSize(8)

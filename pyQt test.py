@@ -24,8 +24,7 @@ import subprocess
 def log(a,sel):
     sel.ui.textBrowser.append(str(a))
 
-sys.set_int_max_str_digits(320000)
-
+sys.set_int_max_str_digits(640000)
 
 
 
@@ -42,7 +41,11 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.horizontalSlider.sliderReleased.connect(self.slide)
-        
+
+        self.setWindowTitle('Калькулятор')
+        self.setWindowIcon(QtGui.QIcon("docs\icon256.png"))
+
+
         self.ui.label_15.setText(str(round(psutil.virtual_memory()[3]/1024**2))+' MB')
         self.ui.label_17.setText(str(int(psutil.cpu_freq().current))+' Mhz')
         
@@ -158,6 +161,8 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.tableWidget.setColumnCount(0)
         self.ui.tableWidget.setRowCount(1)
         self.ui.lineEdit_5.setText(None)
+        self.ui.progressBar.setValue(0)
+        self.ui.label_9.setText("")
         
         self.ui.label_15.setText(str(round(psutil.virtual_memory()[3]/1024**2))+' MB')
         self.ui.label_17.setText(str(int(psutil.cpu_freq().current))+' Mhz')
@@ -177,6 +182,11 @@ class mywindow(QtWidgets.QMainWindow):
         global X,flag,flag2,l,x1,x2
         flag=1
         leg=(self.ui.checkBox.checkState())
+
+        self.ui.progressBar.setStyleSheet("QProgressBar{border-width: 5px;font: 8pt 'Google Sans';border-radius: 10px;border-color: beige;background-color: rgb(255, 255, 255);} QProgressBar:chunk{border-radius: 10px;background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(57, 182, 200, 255), stop:1 rgba(187, 255, 255, 255));}")
+        
+        self.ui.progressBar.setValue(0)
+        self.ui.label_9.setText("")
         
         l = int(self.ui.lineEdit.text())
         x1,x2=float(self.ui.lineEdit_2.text()),float(self.ui.lineEdit_3.text())
@@ -298,7 +308,8 @@ class mywindow(QtWidgets.QMainWindow):
         elif str(self.ui.comboBox_3.currentText())=="py.bin":
             X=np.random.choice([False, True], size=(l,), p=[1./3, 2./3])
             
-            
+        self.ui.progressBar.setValue(100)
+        self.ui.label_9.setText("Завершено")
             
 
 
@@ -322,14 +333,7 @@ class mywindow(QtWidgets.QMainWindow):
         else: L=l
         self.ui.tableWidget.setColumnCount(L)
         self.ui.tableWidget.setRowCount(1)
-        
         for i in range(L):
-            if i%(l/100)==0:
-                pr=int(i/(l/100))
-                if pr<99 and not flag2:
-                    self.ui.progressBar.setValue(int(i/(l/100))) #прогресс бар
-                else:
-                    self.ui.progressBar.setValue(100)
             cellinfo = QTableWidgetItem(str(X[i]))
             self.ui.tableWidget.setItem(0, i, cellinfo)
 
@@ -338,6 +342,7 @@ class mywindow(QtWidgets.QMainWindow):
 
         self.ui.label_9.setText("Завершено")
         self.ui.progressBar.setValue(100)
+        self.ui.label_9.setText("Завершено")
         log("Массив длинной "+str(l)+" заполнен за "+str(t2-t1)+" ms",self)
         
 
@@ -362,6 +367,10 @@ class mywindow(QtWidgets.QMainWindow):
 
     def Calculate(self): #Вычислить
         global l,X,flag,x1,x2
+        self.ui.progressBar.setValue(0)
+        self.ui.progressBar.setStyleSheet("QProgressBar{border-width: 5px;font: 8pt 'Google Sans';border-radius: 10px;border-color: beige;background-color: rgb(255, 255, 255);} QProgressBar:chunk{border-radius: 10px;background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(76, 200, 111, 255), stop:1 rgba(187, 255, 255, 255));}")
+        self.ui.label_9.setText("")
+        self.ui.textBrowser_2.setText("")
         if not flag: log("Ошибка: массив не задан",self)
         else:
             if str(self.ui.comboBox.currentText())=="Сложение": #сложение
@@ -372,7 +381,10 @@ class mywindow(QtWidgets.QMainWindow):
                 if (t2-t1)<1: log(str(len(X))+" элементов были суммированы за <1 ms с результатом "+str(s),self)
                 else: log(str(len(X))+" элементов были суммированы за "+str(t2-t1) +" ms с результатом "+str(s),self)
                 self.ui.textBrowser_2.setText(str(s))
-                
+                self.ui.progressBar.setValue(100)
+
+
+
             elif str(self.ui.comboBox.currentText())=="Вычитание": #вычитание
                 log("Вычитание "+str(len(X))+" элементов массива начато...",self)
                 t1=int(round(time.time() * 1000))
@@ -381,7 +393,7 @@ class mywindow(QtWidgets.QMainWindow):
                 if (t2-t1)<1: log(str(len(X))+" элементов были вычтены за <1 ms с результатом "+str(s),self)
                 else: log(str(len(X))+" элементов были вычтены за "+str(t2-t1) +" ms с результатом "+str(s),self)
                 self.ui.textBrowser_2.setText(str(s))
-                
+                self.ui.progressBar.setValue(100)
 
 
 
@@ -397,7 +409,8 @@ class mywindow(QtWidgets.QMainWindow):
                 #    s=reduce((lambda x, y: x * y), X)
                     for i in range(l):
                         s*=X[i]
-                     #   self.ui.progressBar.setValue(int(i/(l/100))) #прогресс бар
+                        if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
                 t2=int(round(time.time() * 1000))
                 if len(str(s))>12: an=str(s)[:8]+"..."
                 else: an=str(s)
@@ -410,7 +423,8 @@ class mywindow(QtWidgets.QMainWindow):
                         log(str(len(X))+" элементов были перемножены за <1 ms с результатом "+an,self)
                     else:
                         log(str(len(X))+" элементов были перемножены за "+str(t2-t1) +" ms с результатом "+an,self)
-                    self.ui.textBrowser_2.setText(str(Decimal(str(s))))
+                    self.ui.textBrowser_2.setText(str(Decimal.from_float(s)))
+                    print(Decimal.from_float(s))
                 
 
 
@@ -422,14 +436,22 @@ class mywindow(QtWidgets.QMainWindow):
                     log("Ошибка: деление на ноль",self)
                     self.ui.textBrowser_2.setText("Ошибка")
                 else:
+                    s1=1
                     t1=int(round(time.time() * 1000))
-                    s=1/reduce((lambda x, y: x * y), X)
+                    for i in range(l):
+                        s1*=X[i]
+                        if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                    s=1/s1
                     t2=int(round(time.time() * 1000))
                     if len(str(s))>12: an=str(s)[:8]+"..."
                     else: an=str(s)
                     if (t2-t1)<1: log(str(len(X))+" элементов были поделены за <1 ms с результатом "+an,self)
                     else: log(str(len(X))+" элементов были поделены за "+str(t2-t1) +" ms с результатом "+an,self)
-                    self.ui.textBrowser_2.setText(str(s))
+                    if s==0 and 0 not in X:
+                        self.ui.textBrowser_2.setText('1/'+str(s1))
+                    else:
+                        self.ui.textBrowser_2.setText(str(Decimal.from_float(s)))
                 
                 
 
@@ -452,6 +474,7 @@ class mywindow(QtWidgets.QMainWindow):
                 if (t2-t1)<1: log(str(len(X))+"элементов массива были домножены на "+str(mn)+" за <1 ms",self)
                 else: log(str(len(X))+" элементов массива были домножены на " +str(mn)+" за "+str(t2-t1) +" ms",self)
                 self.ui.textBrowser_2.setText("См. таблицу")
+                self.ui.progressBar.setValue(100)
                 
 
 
@@ -479,9 +502,10 @@ class mywindow(QtWidgets.QMainWindow):
 
 
                 
-                
-                self.ui.label_15.setText(str(round(psutil.virtual_memory()[3]/1024**2))+' MB')
-                self.ui.label_17.setText(str(int(psutil.cpu_freq().current))+' Mhz')
+        self.ui.progressBar.setValue(100)
+        self.ui.label_9.setText("Завершено")
+        self.ui.label_15.setText(str(round(psutil.virtual_memory()[3]/1024**2))+' MB')
+        self.ui.label_17.setText(str(int(psutil.cpu_freq().current))+' Mhz')
             
         
         

@@ -48,11 +48,32 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 10pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 10pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	color: rgb(43, 131, 131);
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.977773, y2:0.961, stop:0 rgba(57, 182, 200, 255), stop:1 rgba(187, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>Заполнить</string>
@@ -68,11 +89,18 @@ background-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 8pt &quot;Google Sans&quot;;
+     <string notr="true">QProgressBar{
+	border-width: 5px;
+	font: 8pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	background-color: rgb(255, 255, 255);
+}
+QProgressBar:chunk{
+	 border-radius: 10px;
+	
+	background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(76, 200, 111, 255), stop:1 rgba(187, 255, 255, 255));
+}</string>
     </property>
     <property name="value">
      <number>0</number>
@@ -118,11 +146,29 @@ background-color: rgb(255, 255, 255);</string>
      <string/>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 10pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 10pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(76, 200, 111, 255), stop:1 rgba(187, 255, 255, 255));
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>Вычислить</string>
@@ -226,11 +272,30 @@ background-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 8pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 8pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>Очистить</string>
@@ -295,7 +360,7 @@ font: 8pt &quot;Google Sans&quot;;
       <string>1</string>
      </property>
      <property name="maxLength">
-      <number>5</number>
+      <number>20</number>
      </property>
      <property name="clearButtonEnabled">
       <bool>false</bool>
@@ -497,7 +562,7 @@ font: 8pt &quot;Google Sans&quot;;
       <string>5</string>
      </property>
      <property name="maxLength">
-      <number>5</number>
+      <number>20</number>
      </property>
     </widget>
     <widget class="QComboBox" name="comboBox_3">
@@ -524,6 +589,15 @@ border-width: 2px;
 font: 8pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
      </property>
      <item>
       <property name="text">
@@ -638,7 +712,7 @@ font: 8pt &quot;Google Sans&quot;;
       <x>330</x>
       <y>10</y>
       <width>281</width>
-      <height>231</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="font">
@@ -905,11 +979,30 @@ background-color: rgb(255, 255, 255);</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-width: 2px;
-
+      <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 8pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
      </property>
      <property name="text">
       <string>Скопировать</string>
@@ -961,11 +1054,30 @@ background-color: rgb(255, 255, 255);</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-width: 2px;
-
+      <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 8pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
      </property>
      <property name="text">
       <string>Очистить</string>
@@ -1076,11 +1188,30 @@ font: 8pt &quot;Google Sans&quot;;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 10pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 10pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	color: rgb(170, 0, 0);
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.989, y2:1, stop:0 rgba(160, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>Удалить</string>
@@ -1094,6 +1225,11 @@ background-color: rgb(255, 255, 255);</string>
       <width>921</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Google Sans</family>
+     </font>
     </property>
     <property name="text">
      <string>Массив</string>
@@ -1121,11 +1257,30 @@ background-color: rgb(255, 255, 255);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 10pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 10pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>Автотест</string>
@@ -1143,18 +1298,37 @@ background-color: rgb(255, 255, 255);</string>
     <property name="font">
      <font>
       <family>Google Sans</family>
-      <pointsize>10</pointsize>
+      <pointsize>9</pointsize>
       <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 10pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 9pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>Выход</string>
@@ -1172,18 +1346,37 @@ background-color: rgb(255, 255, 255);</string>
     <property name="font">
      <font>
       <family>Google Sans</family>
-      <pointsize>10</pointsize>
+      <pointsize>9</pointsize>
       <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-width: 5px;
-font: 10pt &quot;Google Sans&quot;;
+     <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 9pt &quot;Google Sans&quot;;
     border-radius: 10px;
     border-color: beige;
-background-color: rgb(255, 255, 255);</string>
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
     </property>
     <property name="text">
      <string>О программе</string>
@@ -1192,8 +1385,8 @@ background-color: rgb(255, 255, 255);</string>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>329</x>
-      <y>259</y>
+      <x>330</x>
+      <y>240</y>
       <width>281</width>
       <height>101</height>
      </rect>
@@ -1250,7 +1443,7 @@ background-color: rgb(255, 255, 255);</string>
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>130</x>
        <y>50</y>
        <width>141</width>
        <height>20</height>
