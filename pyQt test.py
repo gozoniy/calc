@@ -8,6 +8,8 @@ from PyQt5.QtWidgets import QTableWidgetItem,QProgressBar
 
 import psutil,datetime
 
+from decimal import Decimal
+
 import functools
 from functools import reduce
 from t import Ui_MainWindow
@@ -269,8 +271,11 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.random.randint(x1, x2, l,dtype=np.ulonglong)
             
         elif str(self.ui.comboBox_3.currentText())=="py.float":
-            for i in range(len(X)):
-                X[i]=random.uniform(x1, x2)
+            #for i in range(len(X)):
+            #    X[i]=random.uniform(x1, x2)
+            X = list(np.random.uniform(x1,x2, size=l))
+            X = np.array(X, dtype=np.float64)
+            X = [float(x) for x in X]
                 
         elif str(self.ui.comboBox_3.currentText())=="np.float16":
             X=np.zeros(l,dtype="float16")
@@ -389,7 +394,10 @@ class mywindow(QtWidgets.QMainWindow):
                     s=0
                     fl=1
                 else:
-                    s=reduce((lambda x, y: x * y), X)
+                #    s=reduce((lambda x, y: x * y), X)
+                    for i in range(l):
+                        s*=X[i]
+                     #   self.ui.progressBar.setValue(int(i/(l/100))) #прогресс бар
                 t2=int(round(time.time() * 1000))
                 if len(str(s))>12: an=str(s)[:8]+"..."
                 else: an=str(s)
@@ -402,7 +410,7 @@ class mywindow(QtWidgets.QMainWindow):
                         log(str(len(X))+" элементов были перемножены за <1 ms с результатом "+an,self)
                     else:
                         log(str(len(X))+" элементов были перемножены за "+str(t2-t1) +" ms с результатом "+an,self)
-                    self.ui.textBrowser_2.setText(str(s))
+                    self.ui.textBrowser_2.setText(str(Decimal(str(s))))
                 
 
 
