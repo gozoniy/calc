@@ -674,9 +674,9 @@ font: 8pt &quot;Google Sans&quot;;
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>210</y>
+       <y>270</y>
        <width>221</width>
-       <height>51</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -703,6 +703,66 @@ font: 8pt &quot;Google Sans&quot;;
      </property>
      <property name="checked">
       <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_6">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>220</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Google Sans</family>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 85, 127);
+border-width: 2px;
+font: 8pt &quot;Google Sans&quot;;
+    border-radius: 10px;
+    border-color: beige;</string>
+     </property>
+     <property name="text">
+      <string>10</string>
+     </property>
+     <property name="maxLength">
+      <number>20</number>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>220</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Google Sans</family>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Dec L</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -1388,7 +1448,7 @@ QPushButton:pressed{
       <x>330</x>
       <y>240</y>
       <width>281</width>
-      <height>101</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">
@@ -1516,6 +1576,54 @@ QPushButton:pressed{
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_10">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>80</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Google Sans</family>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	border-width: 5px;
+	font: 8pt &quot;Google Sans&quot;;
+    border-radius: 10px;
+    border-color: beige;
+	
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));
+}
+QPushButton:Hover{
+	
+	
+	
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));
+	
+}
+QPushButton:pressed{
+	
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));
+}</string>
+     </property>
+     <property name="text">
+      <string>Обновить</string>
      </property>
     </widget>
    </widget>

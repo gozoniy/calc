@@ -332,7 +332,7 @@ class Ui_MainWindow(object):
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.checkBox = QtWidgets.QCheckBox(self.groupBox)
-        self.checkBox.setGeometry(QtCore.QRect(10, 210, 221, 51))
+        self.checkBox.setGeometry(QtCore.QRect(10, 270, 221, 21))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
         font.setPointSize(8)
@@ -345,6 +345,34 @@ class Ui_MainWindow(object):
         self.checkBox.setWhatsThis("")
         self.checkBox.setChecked(False)
         self.checkBox.setObjectName("checkBox")
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.groupBox)
+        self.lineEdit_6.setGeometry(QtCore.QRect(100, 220, 81, 31))
+        font = QtGui.QFont()
+        font.setFamily("Google Sans")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.lineEdit_6.setFont(font)
+        self.lineEdit_6.setStyleSheet("color: rgb(0, 85, 127);\n"
+"border-width: 2px;\n"
+"font: 8pt \"Google Sans\";\n"
+"    border-radius: 10px;\n"
+"    border-color: beige;")
+        self.lineEdit_6.setMaxLength(20)
+        self.lineEdit_6.setClearButtonEnabled(False)
+        self.lineEdit_6.setObjectName("lineEdit_6")
+        self.label_18 = QtWidgets.QLabel(self.groupBox)
+        self.label_18.setGeometry(QtCore.QRect(40, 220, 61, 31))
+        font = QtGui.QFont()
+        font.setFamily("Google Sans")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_18.setFont(font)
+        self.label_18.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_18.setObjectName("label_18")
         self.groupBox_2 = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox_2.setGeometry(QtCore.QRect(330, 10, 281, 131))
         font = QtGui.QFont()
@@ -718,7 +746,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_9.setObjectName("pushButton_9")
         self.groupBox_4 = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox_4.setGeometry(QtCore.QRect(330, 240, 281, 101))
+        self.groupBox_4.setGeometry(QtCore.QRect(330, 240, 281, 111))
         font = QtGui.QFont()
         font.setFamily("Google Sans")
         font.setPointSize(8)
@@ -778,6 +806,40 @@ class Ui_MainWindow(object):
         self.label_17.setText("")
         self.label_17.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_17.setObjectName("label_17")
+        self.pushButton_10 = QtWidgets.QPushButton(self.groupBox_4)
+        self.pushButton_10.setGeometry(QtCore.QRect(90, 80, 101, 23))
+        font = QtGui.QFont()
+        font.setFamily("Google Sans")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.pushButton_10.setFont(font)
+        self.pushButton_10.setStyleSheet("QPushButton{\n"
+"    border-width: 5px;\n"
+"    font: 8pt \"Google Sans\";\n"
+"    border-radius: 10px;\n"
+"    border-color: beige;\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0.489, y1:1, x2:0.500364, y2:0, stop:0 rgba(218, 218, 218, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"}\n"
+"QPushButton:Hover{\n"
+"    \n"
+"    \n"
+"    \n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(85, 136, 144, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"    \n"
+"}\n"
+"QPushButton:pressed{\n"
+"    \n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.966409, y2:0.756, stop:0 rgba(178, 197, 200, 255), stop:1 rgba(230, 255, 255, 255));\n"
+"}")
+        self.pushButton_10.setObjectName("pushButton_10")
         self.label_6.raise_()
         self.textBrowser.raise_()
         self.pushButton_2.raise_()
@@ -837,6 +899,8 @@ class Ui_MainWindow(object):
         self.comboBox_3.setItemText(13, _translate("MainWindow", "py.bin"))
         self.checkBox.setToolTip(_translate("MainWindow", "<html><head/><body><p>Использовать для создания массивов только циклы for (дольше)</p></body></html>"))
         self.checkBox.setText(_translate("MainWindow", "только циклы for"))
+        self.lineEdit_6.setText(_translate("MainWindow", "10"))
+        self.label_18.setText(_translate("MainWindow", "Dec L"))
         self.groupBox_2.setTitle(_translate("MainWindow", "Действие"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Сложение"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Вычитание"))
@@ -861,6 +925,7 @@ class Ui_MainWindow(object):
         self.groupBox_4.setTitle(_translate("MainWindow", "Монитор ресурсов"))
         self.label_14.setText(_translate("MainWindow", "ОЗУ занято:"))
         self.label_16.setText(_translate("MainWindow", "Частота CPU"))
+        self.pushButton_10.setText(_translate("MainWindow", "Обновить"))
 
 
 if __name__ == "__main__":

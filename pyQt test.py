@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QTableWidgetItem,QProgressBar
 import psutil,datetime
 
 from decimal import Decimal
+from decimal import getcontext
 
 import functools
 from functools import reduce
@@ -37,12 +38,13 @@ flag2=0
 
 class mywindow(QtWidgets.QMainWindow):
     def __init__(self):
+        
         super(mywindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.horizontalSlider.sliderReleased.connect(self.slide)
 
-        self.setWindowTitle('Калькулятор')
+        self.setWindowTitle('САО массива')
         self.setWindowIcon(QtGui.QIcon("docs\icon256.png"))
 
 
@@ -61,8 +63,12 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.pushButton_8.clicked.connect(self.Exit)
         #кнопка about
         self.ui.pushButton_9.clicked.connect(self.About)
+        #кнока Обновить
+        self.ui.pushButton_10.clicked.connect(self.Refresh)
 
-
+    def Refresh(self): #Обновить монитор ресурсов
+        self.ui.label_15.setText(str(round(psutil.virtual_memory()[3]/1024**2))+' MB')
+        self.ui.label_17.setText(str(int(psutil.cpu_freq().current))+' Mhz')
 
 
 
@@ -206,6 +212,8 @@ class mywindow(QtWidgets.QMainWindow):
             X=[]
             for i in range(len(x)):
                 X.append(int(x[i]))
+                if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
                 
         elif str(self.ui.comboBox_3.currentText())=="np.long":  
             x1,x2=int(x1),int(x2)+1
@@ -213,6 +221,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="long")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.int_)
             
@@ -222,6 +232,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="short")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.short)
                 
@@ -231,6 +243,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="int8")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.int8)
                 
@@ -241,6 +255,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="int16")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.int16)
             
@@ -250,6 +266,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="int32")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.int32)
             
@@ -259,6 +277,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="int64")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.int64)
             
@@ -268,6 +288,8 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="longlong")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.longlong)
             
@@ -277,12 +299,15 @@ class mywindow(QtWidgets.QMainWindow):
                 X=np.zeros(l,dtype="ulonglong")
                 for i in range(l):
                     X[i]=random.randint(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X=np.random.randint(x1, x2, l,dtype=np.ulonglong)
             
         elif str(self.ui.comboBox_3.currentText())=="py.float":
             #for i in range(len(X)):
             #    X[i]=random.uniform(x1, x2)
+            
             X = list(np.random.uniform(x1,x2, size=l))
             X = np.array(X, dtype=np.float64)
             X = [float(x) for x in X]
@@ -291,17 +316,23 @@ class mywindow(QtWidgets.QMainWindow):
             X=np.zeros(l,dtype="float16")
             for i in range(l):
                 X[i]=random.uniform(x1, x2)
+                if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
                 
         elif str(self.ui.comboBox_3.currentText())=="np.float32":
             X=np.zeros(l,dtype="float32")
             for i in range(l):
                 X[i]=random.uniform(x1, x2)
+                if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             
         elif str(self.ui.comboBox_3.currentText())=="np.float64":
             if leg:
                 X=np.zeros(l,dtype="float64")
                 for i in range(l):
                     X[i]=random.uniform(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
             else:
                 X = np.random.uniform(x1,x2,l)
             
@@ -371,6 +402,9 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.progressBar.setStyleSheet("QProgressBar{border-width: 5px;font: 8pt 'Google Sans';border-radius: 10px;border-color: beige;background-color: rgb(255, 255, 255);} QProgressBar:chunk{border-radius: 10px;background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(76, 200, 111, 255), stop:1 rgba(187, 255, 255, 255));}")
         self.ui.label_9.setText("")
         self.ui.textBrowser_2.setText("")
+
+        getcontext().prec=int(self.ui.lineEdit_6.text())
+
         if not flag: log("Ошибка: массив не задан",self)
         else:
             if str(self.ui.comboBox.currentText())=="Сложение": #сложение
@@ -399,7 +433,7 @@ class mywindow(QtWidgets.QMainWindow):
 
             elif str(self.ui.comboBox.currentText())=="Умножение": #умножение
                 log("Умножение "+str(len(X))+" элементов массива начато...",self)
-                s=1
+                s=Decimal(1)
                 fl=0
                 t1=int(round(time.time() * 1000))
                 if 0 in X:
@@ -408,7 +442,7 @@ class mywindow(QtWidgets.QMainWindow):
                 else:
                 #    s=reduce((lambda x, y: x * y), X)
                     for i in range(l):
-                        s*=X[i]
+                        s*=Decimal(X[i])
                         if (i+1)%((l/100)+1)==0:
                             self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
                 t2=int(round(time.time() * 1000))
@@ -423,8 +457,8 @@ class mywindow(QtWidgets.QMainWindow):
                         log(str(len(X))+" элементов были перемножены за <1 ms с результатом "+an,self)
                     else:
                         log(str(len(X))+" элементов были перемножены за "+str(t2-t1) +" ms с результатом "+an,self)
-                    self.ui.textBrowser_2.setText(str(Decimal.from_float(s)))
-                    print(Decimal.from_float(s))
+                    self.ui.textBrowser_2.setText(str(Decimal(s)))
+                    print(Decimal(s))
                 
 
 
@@ -436,13 +470,13 @@ class mywindow(QtWidgets.QMainWindow):
                     log("Ошибка: деление на ноль",self)
                     self.ui.textBrowser_2.setText("Ошибка")
                 else:
-                    s1=1
+                    s1=Decimal(1)
                     t1=int(round(time.time() * 1000))
                     for i in range(l):
-                        s1*=X[i]
+                        s1*=Decimal(X[i])
                         if (i+1)%((l/100)+1)==0:
                             self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
-                    s=1/s1
+                    s=Decimal(1)/Decimal(s1)
                     t2=int(round(time.time() * 1000))
                     if len(str(s))>12: an=str(s)[:8]+"..."
                     else: an=str(s)
@@ -451,8 +485,8 @@ class mywindow(QtWidgets.QMainWindow):
                     if s==0 and 0 not in X:
                         self.ui.textBrowser_2.setText('1/'+str(s1))
                     else:
-                        self.ui.textBrowser_2.setText(str(Decimal.from_float(s)))
-                
+                        self.ui.textBrowser_2.setText(str(Decimal(s)))
+                        print(Decimal(s))
                 
 
 
