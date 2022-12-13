@@ -13,8 +13,9 @@ print(Decimal(s))
 dec=100
 for i in range(100) :
     X.append(str(Decimal(uniform(1*10**dec, 5*10**dec))/Decimal(10**dec)))
-print('s=',X[1])
+print('s=',type(X[1]),type(""))
+
 p=Decimal(1)
 for i in range(100):
     p*=Decimal(X[i])
-print('p=',p)
+#print('p=',p)

@@ -307,7 +307,7 @@ class mywindow(QtWidgets.QMainWindow):
         elif str(self.ui.comboBox_3.currentText())=="py.float":
             #for i in range(len(X)):
             #    X[i]=random.uniform(x1, x2)
-            
+            x1,x2=int(x1),int(x2)-1
             dec=int(self.ui.lineEdit_6.text())
             for i in range(l):
                 #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
@@ -419,7 +419,12 @@ class mywindow(QtWidgets.QMainWindow):
             if str(self.ui.comboBox.currentText())=="Сложение": #сложение
                 log("Сложение "+str(len(X))+" элементов массива начато...",self)
                 t1=int(round(time.time() * 1000))
-                s=sum(X)
+                if type(X[0])==type(""):
+                    s=Decimal(0)
+                    for i in range(l):
+                        s+=Decimal(X[i])
+                else:
+                    s=sum(X)
                 t2=int(round(time.time() * 1000))
                 if (t2-t1)<1: log(str(len(X))+" элементов были суммированы за <1 ms с результатом "+str(s),self)
                 else: log(str(len(X))+" элементов были суммированы за "+str(t2-t1) +" ms с результатом "+str(s),self)
@@ -431,7 +436,12 @@ class mywindow(QtWidgets.QMainWindow):
             elif str(self.ui.comboBox.currentText())=="Вычитание": #вычитание
                 log("Вычитание "+str(len(X))+" элементов массива начато...",self)
                 t1=int(round(time.time() * 1000))
-                s=-sum(X)
+                if type(X[0])==type(""):
+                    s=Decimal(0)
+                    for i in range(l):
+                        s-=Decimal(X[i])
+                else:
+                    s=-sum(X)
                 t2=int(round(time.time() * 1000))
                 if (t2-t1)<1: log(str(len(X))+" элементов были вычтены за <1 ms с результатом "+str(s),self)
                 else: log(str(len(X))+" элементов были вычтены за "+str(t2-t1) +" ms с результатом "+str(s),self)
@@ -442,18 +452,26 @@ class mywindow(QtWidgets.QMainWindow):
 
             elif str(self.ui.comboBox.currentText())=="Умножение": #умножение
                 log("Умножение "+str(len(X))+" элементов массива начато...",self)
-                s=Decimal(1)
                 fl=0
                 t1=int(round(time.time() * 1000))
                 if 0 in X:
                     s=0
                     fl=1
                 else:
-                #    s=reduce((lambda x, y: x * y), X)
-                    for i in range(l):
-                        s*=Decimal(X[i])
-                        if (i+1)%((l/100)+1)==0:
-                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                    #    s=reduce((lambda x, y: x * y), X)
+                    if type(X[0])==type(""):
+                        s=Decimal(1)
+                        for i in range(l):
+                            s*=Decimal(X[i])
+                            if (i+1)%((l/100)+1)==0:
+                                self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                    else:
+                        s=1.0
+                        for i in range(l):
+                            s*=X[i]
+                            if (i+1)%((l/100)+1)==0:
+                                self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                        print(type(s))
                 t2=int(round(time.time() * 1000))
                 if len(str(s))>12: an=str(s)[:8]+"..."
                 else: an=str(s)
@@ -478,14 +496,25 @@ class mywindow(QtWidgets.QMainWindow):
                 if 0 in X:
                     log("Ошибка: деление на ноль",self)
                     self.ui.textBrowser_2.setText("Ошибка")
+                
                 else:
-                    s1=Decimal(1)
                     t1=int(round(time.time() * 1000))
-                    for i in range(l):
-                        s1*=Decimal(X[i])
-                        if (i+1)%((l/100)+1)==0:
-                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
-                    s=Decimal(1)/Decimal(s1)
+                    if type(X[0])==type(""):
+                        s1=Decimal(1)
+                        
+                        for i in range(l):
+                            s1*=Decimal(X[i])
+                            if (i+1)%((l/100)+1)==0:
+                                self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                        s=Decimal(1)/Decimal(s1)
+                    else:
+                        s1=0
+                        for i in range(l):
+                            s1*=X[i]
+                            if (i+1)%((l/100)+1)==0:
+                                self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                        s=1/s1
+
                     t2=int(round(time.time() * 1000))
                     if len(str(s))>12: an=str(s)[:8]+"..."
                     else: an=str(s)
@@ -505,11 +534,16 @@ class mywindow(QtWidgets.QMainWindow):
                 mn=int(self.ui.lineEdit_4.text())
                 log("Умножение на "+str(mn)+" каждого элемента массива начато...",self)
                 t1=int(round(time.time() * 1000))
-                
-                for i in range(len(X)):
-                    X[i]=X[i]*mn
-                    cellinfo = QTableWidgetItem(str(X[i]))
-                    self.ui.tableWidget.setItem(0, i, cellinfo)
+                if type(X[0])==type(""):
+                    for i in range(l):
+                        X[i]=Decimal(X[i])*Decimal(mn)
+                        cellinfo = QTableWidgetItem(str(X[i]))
+                        self.ui.tableWidget.setItem(0, i, cellinfo)
+                else:
+                    for i in range(len(X)):
+                        X[i]=X[i]*mn
+                        cellinfo = QTableWidgetItem(str(X[i]))
+                        self.ui.tableWidget.setItem(0, i, cellinfo)
                 
                 t2=int(round(time.time() * 1000))
                 
@@ -529,10 +563,16 @@ class mywindow(QtWidgets.QMainWindow):
                 log("Возведение в "+str(mn)+" степень каждого элемента массива начато...",self)
                 t1=int(round(time.time() * 1000))
                 
-                for i in range(len(X)):
-                    X[i]=X[i]**mn
-                    cellinfo = QTableWidgetItem(str(X[i]))
-                    self.ui.tableWidget.setItem(0, i, cellinfo)
+                if type(X[0])==type(""):
+                    for i in range(l):
+                        X[i]=Decimal(X[i])**Decimal(mn)
+                        cellinfo = QTableWidgetItem(str(X[i]))
+                        self.ui.tableWidget.setItem(0, i, cellinfo)
+                else:
+                    for i in range(len(X)):
+                        X[i]=X[i]**mn
+                        cellinfo = QTableWidgetItem(str(X[i]))
+                        self.ui.tableWidget.setItem(0, i, cellinfo)
                 
                 t2=int(round(time.time() * 1000))
                 
