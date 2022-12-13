@@ -308,16 +308,25 @@ class mywindow(QtWidgets.QMainWindow):
             #for i in range(len(X)):
             #    X[i]=random.uniform(x1, x2)
             
-            X = list(np.random.uniform(x1,x2, size=l))
-            X = np.array(X, dtype=np.float64)
-            X = [float(x) for x in X]
-                
+            dec=int(self.ui.lineEdit_6.text())
+            for i in range(l):
+                #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
+                strl=str(random.randint(x1,x2))+"."
+                for j in range(dec):
+                    n=str(random.randint(0,9))
+                    strl=strl+n
+                X[i]=strl
+
+                if (i+1)%((l/100)+1)==0:
+                    self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+            
+            print(X[1],type(X[1]))
         elif str(self.ui.comboBox_3.currentText())=="np.float16":
             X=np.zeros(l,dtype="float16")
             for i in range(l):
                 X[i]=random.uniform(x1, x2)
                 if (i+1)%((l/100)+1)==0:
-                            self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+                    self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
                 
         elif str(self.ui.comboBox_3.currentText())=="np.float32":
             X=np.zeros(l,dtype="float32")

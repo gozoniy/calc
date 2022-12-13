@@ -10,9 +10,9 @@ import psutil
 # 
 # a=rand.Float32()
 # print(type(a))
-print(f"Min CPU frequency: {psutil.cpu_freq().current}")
+#print(f"Min CPU frequency: {psutil.cpu_freq().current}")
 
-c=psutil.cpu_freq().current
+#c=psutil.cpu_freq().current
 print(c)
 # a = np.zeros(4,dtype="float64") 
 # print (a.dtype)
