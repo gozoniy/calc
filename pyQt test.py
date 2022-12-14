@@ -307,19 +307,26 @@ class mywindow(QtWidgets.QMainWindow):
         elif str(self.ui.comboBox_3.currentText())=="py.float":
             #for i in range(len(X)):
             #    X[i]=random.uniform(x1, x2)
-            x1,x2=int(x1),int(x2)-1
-            dec=int(self.ui.lineEdit_6.text())
-            for i in range(l):
-                #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
-                strl=str(random.randint(x1,x2))+"."
-                for j in range(dec):
-                    n=str(random.randint(0,9))
-                    strl=strl+n
-                X[i]=strl
+            if (self.ui.checkBox_2.checkState()):
+                x1,x2=int(x1),int(x2)-1
+                dec=int(self.ui.lineEdit_6.text())
+                for i in range(l):
+                    #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
+                    strl=str(random.randint(x1,x2))+"."
+                    for j in range(dec):
+                        n=str(random.randint(0,9))
+                        strl=strl+n
+                    X[i]=strl
 
-                if (i+1)%((l/100)+1)==0:
-                    self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
-            
+                    if (i+1)%((l/100)+1)==0:
+                        self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+            else:
+                for i in range(l):
+                    X[i]=random.uniform(x1, x2)
+                    if (i+1)%((l/100)+1)==0:
+                        self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
+
+
             print(X[1],type(X[1]))
         elif str(self.ui.comboBox_3.currentText())=="np.float16":
             X=np.zeros(l,dtype="float16")
