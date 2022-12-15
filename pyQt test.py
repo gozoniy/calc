@@ -308,14 +308,19 @@ class mywindow(QtWidgets.QMainWindow):
             #for i in range(len(X)):
             #    X[i]=random.uniform(x1, x2)
             if (self.ui.checkBox_2.checkState()):
-                x1,x2=int(x1),int(x2)-1
                 dec=int(self.ui.lineEdit_6.text())
                 for i in range(l):
                     #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
-                    strl=str(random.randint(x1,x2))+"."
-                    for j in range(dec):
-                        n=str(random.randint(0,9))
-                        strl=strl+n
+                    if x1!=int(x1) or x2!=int(x2):
+                        strl=str(random.uniform(x1,x2))
+                        for j in range(dec):
+                            n=str(random.randint(0,9))
+                            strl=strl+n
+                    else:
+                        strl=str(random.uniform(x1,x2))+"."
+                        for j in range(dec):
+                            n=str(random.randint(0,9))
+                            strl=strl+n
                     X[i]=strl
 
                     if (i+1)%((l/100)+1)==0:
