@@ -313,13 +313,13 @@ class mywindow(QtWidgets.QMainWindow):
                     #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
                     if x1!=int(x1) or x2!=int(x2):
                         strl=str(random.uniform(x1,x2))
-                        for j in range(dec):
-                            n=str(random.randint(0,9))
+                        for j in range(dec//16):
+                            n=str(random.uniform(0,1))[2:]
                             strl=strl+n
                     else:
-                        strl=str(random.uniform(x1,x2))+"."
-                        for j in range(dec):
-                            n=str(random.randint(0,9))
+                        strl=str(random.uniform(x1,x2))
+                        for j in range(dec//16):
+                            n=str(random.uniform(0,1))[2:]
                             strl=strl+n
                     X[i]=strl
 
