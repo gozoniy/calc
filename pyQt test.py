@@ -308,19 +308,33 @@ class mywindow(QtWidgets.QMainWindow):
             #for i in range(len(X)):
             #    X[i]=random.uniform(x1, x2)
             if (self.ui.checkBox_2.checkState()):
+                # dec=int(self.ui.lineEdit_6.text())
+                # for i in range(l):
+                #     #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
+                #     if x1!=int(x1) or x2!=int(x2):
+                #         strl=str(random.uniform(x1,x2))
+                #         for j in range(dec//16):
+                #             n=str(random.uniform(0,1))[2:]
+                #             strl=strl+n
+                #     else:
+                #         strl=str(random.uniform(x1,x2))
+                #         for j in range(dec//16):
+                #             n=str(random.uniform(0,1))[2:]
+                #             strl=strl+n
+                #     X[i]=strl
                 dec=int(self.ui.lineEdit_6.text())
+                
                 for i in range(l):
                     #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
-                    if x1!=int(x1) or x2!=int(x2):
-                        strl=str(random.uniform(x1,x2))
-                        for j in range(dec//16):
-                            n=str(random.uniform(0,1))[2:]
-                            strl=strl+n
+                    if x1==int(x1) and x2==int(x2):
+                        strl=str(random.randint(x1,x2))+"."
                     else:
                         strl=str(random.uniform(x1,x2))
-                        for j in range(dec//16):
-                            n=str(random.uniform(0,1))[2:]
-                            strl=strl+n
+
+                    for j in range(dec//32):
+                        n=str(random.randint(0,9*10**32))
+                        strl=strl+n
+                    
                     X[i]=strl
 
                     if (i+1)%((l/100)+1)==0:
@@ -474,7 +488,7 @@ class mywindow(QtWidgets.QMainWindow):
                     if type(X[0])==type(""):
                         s=Decimal(1)
                         for i in range(l):
-                            s*=Decimal(X[i])
+                            s=Decimal(s)*Decimal(X[i])
                             if (i+1)%((l/100)+1)==0:
                                 self.ui.progressBar.setValue(int((i)/(l/100))+1) #прогресс бар
                     else:
