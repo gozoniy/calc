@@ -34,4 +34,4 @@ import psutil
 
 
 
-print(str(random.randint(0,9_000_000)))
+print(str(random.randint(0,9*10**512)))

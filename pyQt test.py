@@ -323,17 +323,17 @@ class mywindow(QtWidgets.QMainWindow):
                 #             strl=strl+n
                 #     X[i]=strl
                 dec=int(self.ui.lineEdit_6.text())
-                
+                fg1=0
+
                 for i in range(l):
                     #X[i]=(str(Decimal(random.uniform(x1*10**dec, x2*10**dec))/Decimal(10**dec)))
                     if x1==int(x1) and x2==int(x2):
                         strl=str(random.randint(x1,x2))+"."
                     else:
                         strl=str(random.uniform(x1,x2))
-
-                    for j in range(dec//32):
-                        n=str(random.randint(0,9*10**32))
-                        strl=strl+n
+                    
+                    n=str(random.randint(0,10**(dec-1)))
+                    strl=strl+n
                     
                     X[i]=strl
 
