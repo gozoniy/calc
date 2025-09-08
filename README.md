@@ -85,7 +85,7 @@
 Или клонируйте репозиторий:
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/username/project-name.git
+git clone https://github.com/gozoniy/calc
 
 # Перейти в папку проекта
 cd project-name
